@@ -49,17 +49,18 @@ Hay que tener en cuenta que la base de datos que usa nuestra aplicación Laravel
 
 En la siguiente tabla se ven los datos propios de cada tipo de producto y un ejemplo de configuración:
 
-Tipo | Datos propios | Ejemplo |
-COMPUTACIÓN | CPU, RAM, disco y sistema operativo | Servidor con 2 CPU, 4 GB de RAM, 80 GB de disco y Ubuntu 
-ALMACENAMIENTO | Tipo de almacenamiento y capacidad | 250 GB de almacenamiento de archivos 
-BASES DE DATOS | Motor, versión, tamaño y réplicas | MySQL 8 con 20 GB y una réplica 
-REDES | Tipo (IP pública, balanceador, DNS...) y tráfico incluido | Balanceador de carga con 1 TB de tráfico al mes 
-SEGURIDAD | Tipo (firewall, certificado SSL...) y número de reglas | Firewall con 20 reglas 
-BACKUP | Cada cuánto se hace la copia, cuántos días se guarda y dónde | Copia diaria que se guarda 7 días en otra región 
-MONITORIZACIÓN | Qué se vigila, cada cuánto y cómo avisa | Revisión cada minuto y aviso por email 
-COMPUTACIÓN_IA | Igual que computación, pero con tarjeta gráfica (GPU) | Servidor con 1 GPU de 24 GB, 8 CPU y 32 GB de RAM 
-SERVICIO_IA | Tipo de IA, límite de uso y dónde se procesan los datos | API de texto con un límite de uso al mes, procesada en Europa 
-SOPORTE | Nivel, tiempo de respuesta y forma de pago | Ayuda con la instalación, 25 € en un pago único
+| Tipo | Datos propios | Ejemplo |
+|---|---|---|
+| COMPUTACIÓN | CPU, RAM, disco y sistema operativo | Servidor con 2 CPU, 4 GB de RAM, 80 GB de disco y Ubuntu |
+| ALMACENAMIENTO | Tipo de almacenamiento y capacidad | 250 GB de almacenamiento de archivos |
+| BASES DE DATOS | Motor, versión, tamaño y réplicas | MySQL 8 con 20 GB y una réplica |
+| REDES | Tipo (IP pública, balanceador, DNS...) y tráfico incluido | Balanceador de carga con 1 TB de tráfico al mes |
+| SEGURIDAD | Tipo (firewall, certificado SSL...) y número de reglas | Firewall con 20 reglas |
+| BACKUP | Cada cuánto se hace la copia, cuántos días se guarda y dónde | Copia diaria que se guarda 7 días en otra región |
+| MONITORIZACIÓN | Qué se vigila, cada cuánto y cómo avisa | Revisión cada minuto y aviso por email |
+| COMPUTACIÓN_IA | Igual que computación, pero con tarjeta gráfica (GPU) | Servidor con 1 GPU de 24 GB, 8 CPU y 32 GB de RAM |
+| SERVICIO_IA | Tipo de IA, límite de uso y dónde se procesan los datos | API de texto con un límite de uso al mes, procesada en Europa |
+| SOPORTE | Nivel, tiempo de respuesta y forma de pago | Ayuda con la instalación, 25 € en un pago único |
 
 #### ¿Por qué no hacer una sola tabla con 50 columnas?
 
@@ -98,7 +99,7 @@ Por último, hay que diferenciar lo que permite un producto de lo que elige el c
 
 ## 3. Modelo conceptual de datos
 
-
+El modelo de datos está en un documento aparte: [modelo-datos.md](modelo-datos.md).
 
 ## 4. Arquitectura Laravel
 
@@ -116,8 +117,9 @@ Por último, hay que diferenciar lo que permite un producto de lo que elige el c
 
 ## Referencias
 
-N.º | Fuente | URL | Para qué la usamos
-1 | DigitalOcean Marketplace | https://marketplace.digitalocean.com/ | Ver cómo organizan el catálogo
-2 | AWS Pricing Calculator | https://calculator.aws/ | Ver qué se configura en cada producto
-3 | Azure Pricing Calculator | https://azure.microsoft.com/es-es/pricing/calculator/ | Ver tipos de producto, regiones y precios
-4 | Google Cloud Pricing Calculator | https://cloud.google.com/products/calculator | Ver cómo calculan el precio final
+| N.º | Fuente | URL | Para qué la usamos |
+|---|---|---|---|
+| 1 | DigitalOcean Marketplace | https://marketplace.digitalocean.com/ | Ver cómo organizan el catálogo |
+| 2 | AWS Pricing Calculator | https://calculator.aws/ | Ver qué se configura en cada producto |
+| 3 | Azure Pricing Calculator | https://azure.microsoft.com/es-es/pricing/calculator/ | Ver tipos de producto, regiones y precios |
+| 4 | Google Cloud Pricing Calculator | https://cloud.google.com/products/calculator | Ver cómo calculan el precio final |
