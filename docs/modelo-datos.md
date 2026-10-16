@@ -84,7 +84,7 @@ erDiagram
 
 ## 4. Decisiones que quedan abiertas
 
-- Cómo guardar los datos específicos de cada tipo de producto: una tabla por tipo o un campo JSON (ver el apartado 2.1 de [arquitectura.md](arquitectura.md)).
+- Cómo guardar los datos específicos de cada tipo de producto: una tabla por tipo o un campo JSON (ver el apartado 1 de [dominio-cloud.md](dominio-cloud.md)).
 - Si un usuario podrá tener más de un rol. De momento tiene solo uno.
 - Si el carrito se crea a partir de una arquitectura aceptada o el cliente puede añadir productos sueltos.
 - Si la RecomendaciónIA y la Arquitectura que se crea a partir de ella deben estar enlazadas directamente.
