@@ -13,7 +13,7 @@
 
 ---
 
-## Alumno 2: Joselu
+## Alumno 2: Eliezer
 * **Rol:** Backend Developer / Lógica de Negocio
 * **Responsabilidades:**
   * Desarrollo de controladores, modelos y rutas en Laravel.
@@ -22,7 +22,7 @@
 
 ---
 
-## Alumno 3: Eliezer
+## Alumno 3: Joselu
 * **Rol:** Analista de Requisitos / QA
 * **Responsabilidades:**
   * Levantamiento y redacción de requisitos funcionales y no funcionales en `docs/requisitos.md`.
