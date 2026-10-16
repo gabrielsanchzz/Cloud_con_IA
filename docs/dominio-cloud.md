@@ -68,7 +68,50 @@ En la aplicación, cuando el cliente elija un producto, Laravel comprobará que 
 
 ## 3. Proyectos y requerimientos
 
+### ¿Qué es un proyecto?
 
+Un proyecto es lo que el cliente quiere conseguir, por ejemplo montar la web de una academia. No es una lista de productos, sino la necesidad que tiene. A partir del proyecto la aplicación (o la IA) propone qué productos necesita.
+
+Un proyecto guarda estos datos: nombre, descripción, presupuesto máximo al mes, número de usuarios que se esperan, nivel de seguridad (bajo, medio o alto) y región donde quiere los datos.
+
+### Ejemplos de proyectos
+
+| Proyecto | Usuarios | Presupuesto | Lo que necesita |
+|---|---|---|---|
+| Academia online con Laravel | 500 | 50 €/mes | Servidor, base de datos, backup diario, datos en Europa |
+| Tienda online | 5.000 | 300 €/mes | Varios servidores, balanceador, base de datos con réplica, firewall |
+| Entorno de pruebas para una empresa | 20 | 30 €/mes | Un servidor pequeño, sin backup |
+| App móvil con base de datos | 2.000 | 150 €/mes | Servidor, base de datos, almacenamiento para imágenes, monitorización |
+| Blog de una empresa | 1.000 | 20 €/mes | Servidor pequeño, certificado SSL, backup semanal |
+
+### De texto a requerimientos
+
+El cliente puede escribir lo que necesita en texto, por ejemplo: “Necesito una web para una academia con 500 usuarios, datos en Europa y backup diario”. El problema es que la aplicación no puede comprobar un texto, así que hay que pasarlo a requerimientos con un formato fijo:
+
+| Atributo | Operador | Valor | Tipo |
+|---|---|---|---|
+| usuarios | >= | 500 | Obligatorio |
+| region | = | EU | Obligatorio |
+| backup | = | diario | Obligatorio |
+| precio_mensual | <= | 50 | Obligatorio |
+| ram | >= | 4 | Opcional |
+
+Cada requerimiento tiene un atributo, un operador (=, >=, <=), un valor y si es obligatorio u opcional.
+
+- Obligatorio: se tiene que cumplir sí o sí. Si una arquitectura no lo cumple, Laravel no la acepta.
+- Opcional: es una preferencia. Si se puede cumplir mejor, pero no es imprescindible.
+
+### ¿De dónde salen los requerimientos?
+
+- Del cliente, que los pone a mano en el formulario del proyecto.
+- De la IA, que lee el texto del cliente y propone los requerimientos. El cliente los revisa antes de guardarlos.
+- De las reglas de la aplicación, por ejemplo, si el proyecto tiene seguridad alta, se añade un firewall obligatorio.
+
+### Ventajas
+
+- Laravel puede comprobar automáticamente si una arquitectura cumple lo que pide el cliente.
+- Se pueden comparar varias propuestas entre sí.
+- La IA recibe los datos ordenados, así que sus recomendaciones son más fáciles de comprobar después.
 
 ---------------------------------------------------------------------------------------------------------------------------------
 
