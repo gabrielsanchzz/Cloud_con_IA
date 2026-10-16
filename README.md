@@ -10,8 +10,8 @@ Cloud_con_IA es una plataforma web orientada al backend desarrollada en Laravel 
 * **Javi**: Arquitecto de Software, Dominio de Datos e Inteligencia Artificial (Rol 4)
 
 ## 3. Tecnologías y Stack Tecnológico
-* **Sistema Operativo**: Ubuntu 24.04 LTS
-* **Framework Backend**: Laravel 11 sobre PHP 8
+* **Sistema Operativo**: Ubuntu 22.04.5 LTS
+* **Framework Backend**: Laravel 13 sobre PHP 8.3.35
 * **Gestión de Dependencias**: Composer y npm / Node.js
 * **Empaquetador Frontend**: Vite
 * **Persistencia y Datos**: Base de datos relacional y SQLite para desarrollo
@@ -26,5 +26,20 @@ Toda la documentación técnica del análisis funcional, arquitectura y diseño 
 * **`docs/roles-equipo.md`**: Definición de la organización interna del grupo, asignación de responsabilidades por roles y normativa interna de colaboración y control de versiones.
 * **`docs/planificacion.md`**: Análisis de riesgos técnicos y de seguridad, medidas preventivas implementadas (protección del archivo `.env`) y backlog inicial de épicas para la planificación del desarrollo.
 
-## 5. Estado Actual del Proyecto
-El proyecto se encuentra en la **Fase 1 (UT1)** completada: el entorno de desarrollo en Ubuntu está verificado y operativo, el repositorio compartido en GitHub está configurado bajo una estricta política de seguridad (exclusión de credenciales y uso de `.gitignore`), se ha creado la estructura base de documentación en `docs` y el proyecto Laravel inicial cuenta con la vista de comprobación del patrón MVC.
+## 5. Configuración entorno (MySql)
+
+## Configuración
+cd proyecto_laravel
+cp .env.example .env
+php artisan key:generate
+
+## Ejecución
+php artisan serve
+# Abrir http://127.0.0.1:8000
+
+## Base de datos
+MySQL, base `cloud_con_ia` con usuario propio (root_dsw)
+Tras configurar el .env: php artisan migrate
+
+## 6. Estado Actual del Proyecto
+El proyecto se encuentra en la Fase 1 que está completada: el entorno de desarrollo en Ubuntu está verificado y operativo, el repositorio compartido en GitHub está configurado bajo una estricta política de seguridad (exclusión de credenciales y uso de `.gitignore`), se ha creado la estructura base de documentación en `docs` y el proyecto Laravel inicial cuenta con la vista de comprobación del patrón MVC.
