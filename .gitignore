@@ -29,3 +29,18 @@ Homestead.json
 .env.production
 .phpactor.json
 auth.json
+
+# Reglas para la subcarpeta de Laravel
+proyecto_laravel/vendor/
+proyecto_laravel/node_modules/
+proyecto_laravel/.env
+proyecto_laravel/.env.*
+!proyecto_laravel/.env.example
+proyecto_laravel/public/build
+proyecto_laravel/storage/*.key
+
+# Archivos del sistema operativo y VS Code
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
