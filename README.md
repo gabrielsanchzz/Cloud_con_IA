@@ -5,8 +5,8 @@ Cloud_con_IA es una plataforma web orientada al backend desarrollada en Laravel 
 
 ## 2. Integrantes y Roles del Equipo
 * **Gabriel Sánchez**: Coordinación Técnica, DevOps, GitOps, Seguridad y Control de Versiones (Rol 1)
-* **Joselu**: Backend Developer, SysAdmin y Responsable del Entorno de Desarrollo (Rol 2)
-* **Eliezer**: Analista Funcional y Requisitos (Rol 3)
+* **Eliezer**: Backend Developer, SysAdmin y Responsable del Entorno de Desarrollo (Rol 2)
+* **Joselu**: Analista Funcional y Requisitos (Rol 3)
 * **Javi**: Arquitecto de Software, Dominio de Datos e Inteligencia Artificial (Rol 4)
 
 ## 3. Tecnologías y Stack Tecnológico
