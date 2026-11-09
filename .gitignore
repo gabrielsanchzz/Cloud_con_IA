@@ -44,3 +44,7 @@ proyecto_laravel/storage/*.key
 Thumbs.db
 .vscode/
 .idea/
+
+# Base de datos local
+proyecto_laravel/cloud_con_ia
+*.sqlite
