@@ -1,58 +1,122 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Cloud_con_IA - UT2
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplicación en Laravel para hacer presupuestos de infraestructuras Cloud. En esta versión se pueden subir archivos a un proyecto, usar el carrito y emitir presupuestos, todo guardado en la base de datos.
 
-## About Laravel
+DSW - 2º DAW - Curso 2026/2027
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Integrantes: Gabriel Sánchez [apellido], Eliezer [apellidos], Joselu [apellidos] y Javier Moreno Pablo.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 1. Requisitos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Lo que usamos nosotros:
 
-## Learning Laravel
+- PHP 8.3
+- Composer 2
+- Node.js y npm
+- Laravel 13
+- SQLite (ya viene con PHP)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+En Windows lo más fácil es instalar Laravel Herd (https://herd.laravel.com), que ya trae PHP y Composer. Después en la terminal:
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+```
+herd use 8.3
+php -v
+composer -V
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Node.js se descarga de https://nodejs.org (la versión LTS).
 
-## Contributing
+En Ubuntu los pasos están en `docs/entorno.md`.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 2. Instalación
 
-## Code of Conduct
+Dentro de la carpeta del proyecto (donde está el archivo `artisan`):
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```
+composer install
+npm install
+```
 
-## Security Vulnerabilities
+## 3. Configurar el .env
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
+copy .env.example .env
+php artisan key:generate
+```
 
-## License
+En Linux es `cp` en vez de `copy`.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Luego abrir el `.env` y poner una `#` delante de esta línea para que use SQLite:
+
+```
+# DB_DATABASE=cloud_con_ia
+```
+
+El `.env` no se sube a GitHub.
+
+## 4. Base de datos
+
+```
+php artisan migrate
+```
+
+Si pregunta si quieres crear la base de datos, poner yes.
+
+Para tener datos de prueba:
+
+```
+php artisan tinker --execute="App\Models\Proyecto::factory()->create()"
+php artisan tinker --execute="App\Models\Producto::factory()->count(4)->create()"
+```
+
+## 5. Arrancar
+
+```
+npm run build
+php artisan serve
+```
+
+Y abrir en el navegador:
+
+- Inicio: http://127.0.0.1:8000
+- Archivos del proyecto 1: http://127.0.0.1:8000/proyectos/1/archivos
+- Carrito del proyecto 1: http://127.0.0.1:8000/proyectos/1/carrito
+
+## 6. Tests
+
+```
+php artisan test
+```
+
+Los tests no tocan la base de datos ni los archivos de verdad, usan una base de datos en memoria y un disco falso.
+
+## 7. Problemas en Windows
+
+Si al subir un archivo sale "El archivo no se ha podido subir" y en la consola pone `unable to create a temporary file`, es por el `php.ini` de Herd, que trae `sys_temp_dir = "/tmp"` (una ruta de Linux).
+
+Para arreglarlo:
+
+1. Mirar dónde está el `php.ini` con `php --ini`.
+2. Cambiar estas dos líneas poniendo tu usuario:
+   ```
+   sys_temp_dir = "C:\Users\TU_USUARIO\AppData\Local\Temp"
+   upload_tmp_dir = "C:\Users\TU_USUARIO\AppData\Local\Temp"
+   ```
+3. Cerrar la terminal, abrirla otra vez y volver a hacer `php artisan serve`.
+
+Si no encuentra `php` o `composer`, usar `cmd` o PowerShell. La terminal de MSYS2 (UCRT64) no ve los programas de Herd.
+
+## 8. Qué hay en esta versión
+
+Funciona:
+
+- Subir, ver, sustituir y borrar archivos de un proyecto (PDF, PNG o JPG de hasta 1 MB).
+- Carrito guardado en la base de datos: añadir, cambiar la cantidad y quitar.
+- Emitir presupuestos. El presupuesto guarda una copia de los precios, así que no cambia aunque luego cambie el catálogo.
+
+Falta (para la UT3 y UT4):
+
+- Login y permisos.
+- API REST.
+- La IA.
+- Pagos y despliegues.
