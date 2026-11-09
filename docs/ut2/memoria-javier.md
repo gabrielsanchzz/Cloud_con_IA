@@ -27,9 +27,9 @@ Lo hemos hecho mixto: columnas normales para los precios y la cantidad, que son 
 
 **Prueba histórica:**
 
-1. Emitimos el presupuesto #1 con 3 productos. El "Servidor 884" costaba 35,91 € al mes y pusimos 2, así que el subtotal era 71,82 €. Total mensual 158,67 € y pago único 47,19 € (`8.2-presupuesto-emitido.png`).
-2. Con tinker cambiamos el producto a "Servidor 884 PRO" y 99,99 €. En el carrito ya sale con el nombre y precio nuevos (`8.2-catalogo-cambiado.png`).
-3. Volvimos a abrir el presupuesto #1 y sigue saliendo "Servidor 884" a 35,91 € y el total 158,67 € (`8.2-presupuesto-sin-cambios.png`).
+1. Emitimos el presupuesto #1 del proyecto "Intranet de la clínica dental" con 3 productos. El "Almacenamiento de objetos 500 GB" costaba 12,40 € al mes y pusimos 2, así que el subtotal era 24,80 €. Total mensual 31,55 € y pago único 15,00 € del certificado SSL (`8.2-presupuesto-emitido.png`).
+2. Con tinker cambiamos el producto a "Almacenamiento de objetos 1 TB" y 19,90 €. En el carrito ya sale con el nombre y precio nuevos (`8.2-catalogo-cambiado.png`).
+3. Volvimos a abrir el presupuesto #1 y sigue saliendo "Almacenamiento de objetos 500 GB" a 12,40 € y el total 31,55 € (`8.2-presupuesto-sin-cambios.png`).
 
 Esto mismo es lo que comprueba el test T09.
 
@@ -74,7 +74,7 @@ También hay 4 tests del carrito en `CarritoTest.php`. Captura de los tests pasa
 | Cantidad/configuración fuera de rango | Con cantidad 0 o más de 100 no se añade. | Sale "La cantidad mínima es 1." y no se guarda. Test `test_rechaza_una_cantidad_fuera_de_rango`. |
 | Carrito vacío | No se emite el presupuesto. | Sale "El carrito está vacío, no se puede emitir el presupuesto." y no aparece ningún presupuesto. `9.2-carrito-vacio.png` |
 | Fichero rechazado | Un archivo que no es PDF, PNG o JPG no se sube. | Sale "Solo se permiten archivos PDF, PNG o JPG." y no sale en la lista. `9.2-fichero-rechazado-y-subida-correcta.png` |
-| Tarifa modificada tras emitir presupuesto | El presupuesto no cambia. | El presupuesto #1 sigue a 35,91 € aunque el producto ahora cuesta 99,99 €. `8.2-catalogo-cambiado.png` y `8.2-presupuesto-sin-cambios.png` |
+| Tarifa modificada tras emitir presupuesto | El presupuesto no cambia. | El presupuesto #1 sigue a 12,40 € aunque el producto ahora cuesta 19,90 €. `8.2-catalogo-cambiado.png` y `8.2-presupuesto-sin-cambios.png` |
 
 ## 9.3. Investigación real de un fallo
 
