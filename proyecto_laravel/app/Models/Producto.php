@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Producto extends Model
 {
@@ -44,6 +45,12 @@ class Producto extends Model
         return $this->belongsToMany(Region::class, 'producto_region')
             ->withPivot('disponible', 'precio')
             ->withTimestamps();
+    }
+
+    // Líneas de carrito que usan este producto (el carrito impide borrarlo mientras exista alguna)
+    public function carritoLineas(): HasMany
+    {
+        return $this->hasMany(CarritoLinea::class);
     }
 
     public function scopeActivos(Builder $query): Builder
