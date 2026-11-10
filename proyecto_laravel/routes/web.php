@@ -25,4 +25,10 @@ Route::post('/proyectos/{proyecto}/presupuestos', [PresupuestoController::class,
 Route::get('/presupuestos/{presupuesto}', [PresupuestoController::class, 'show'])->name('presupuestos.show');
 
 Route::get('/catalogo', [CatalogoController::class, 'index'])->name('catalogo.index');
+Route::get('/catalogo/crear', [CatalogoController::class, 'create'])->name('catalogo.create');
+Route::post('/catalogo', [CatalogoController::class, 'store'])->name('catalogo.store');
 Route::get('/catalogo/{producto}', [CatalogoController::class, 'show'])->name('catalogo.show');
+Route::get('/catalogo/{producto}/editar', [CatalogoController::class, 'edit'])->name('catalogo.edit');
+Route::patch('/catalogo/{producto}', [CatalogoController::class, 'update'])->name('catalogo.update');
+Route::patch('/catalogo/{producto}/estado', [CatalogoController::class, 'cambiarEstado'])->name('catalogo.estado');
+Route::delete('/catalogo/{producto}', [CatalogoController::class, 'destroy'])->name('catalogo.destroy');
